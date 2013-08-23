@@ -13,6 +13,7 @@
 
 #import "AGImagePickerController.h"
 #import "AGIPCAssetsController.h"
+#import "ACIPAssetsCollectionViewController.h"
 
 @interface AGIPCAlbumsController ()
 {
@@ -154,6 +155,16 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    UICollectionViewFlowLayout *layout=[[UICollectionViewFlowLayout alloc] init];
+    [layout setMinimumInteritemSpacing:10.0];
+    [layout setMinimumLineSpacing:10.0];
+    
+    ACIPAssetsCollectionViewController *ctrl = [[ACIPAssetsCollectionViewController alloc] initWithCollectionViewLayout:layout];
+    [ctrl setImagePickerController:self.imagePickerController];
+    [ctrl setAssetsGroup:self.assetsGroups[indexPath.row]];
+    [self.navigationController pushViewController:ctrl animated:YES];
+    return;
     
 	AGIPCAssetsController *controller = [[AGIPCAssetsController alloc] initWithImagePickerController:self.imagePickerController andAssetsGroup:self.assetsGroups[indexPath.row]];
 	[self.navigationController pushViewController:controller animated:YES];

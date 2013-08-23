@@ -10,7 +10,7 @@
 //  
 
 #import "AGIPCGridItem.h"
-
+#import <QuartzCore/QuartzCore.h>
 
 #import "AGImagePickerController+Helper.h"
 
@@ -22,9 +22,6 @@
     
     BOOL _selected;
     
-    UIImageView *_thumbnailImageView;
-    UIView *_selectionView;
-    UIImageView *_checkmarkImageView;
 }
 
 @property (nonatomic, strong) UIImageView *thumbnailImageView;
@@ -141,7 +138,7 @@ static NSUInteger numberOfSelectedGridItems = 0;
         
         self.thumbnailImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height)];
 		self.thumbnailImageView.contentMode = UIViewContentModeScaleToFill;
-		[self addSubview:self.thumbnailImageView];
+        [self addSubview:self.thumbnailImageView];
         
         self.selectionView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height)];
         self.selectionView.backgroundColor = [UIColor whiteColor];

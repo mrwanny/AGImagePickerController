@@ -142,6 +142,10 @@
 
 #pragma mark - UITableViewDataSource Methods
 
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return 1;
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (! self.imagePickerController) return 0;
@@ -174,6 +178,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSLog(@"indexPath %@", [indexPath debugDescription]);
     static NSString *CellIdentifier = @"Cell";
     
     AGIPCGridCell *cell = (AGIPCGridCell *)[self.tableView dequeueReusableCellWithIdentifier:CellIdentifier];
@@ -185,6 +190,7 @@
     {		
 		cell.items = [self itemsForRowAtIndexPath:indexPath];
 	}
+    [cell.contentView addSubview:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"square.jpg" ]]];
     
     return cell;
 }
@@ -292,7 +298,6 @@
         
         @autoreleasepool {
             [strongSelf.assetsGroup enumerateAssetsUsingBlock:^(ALAsset *result, NSUInteger index, BOOL *stop) {
-                
                 if (result == nil) 
                 {
                     return;
@@ -310,6 +315,7 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             
             [strongSelf reloadData];
+            NSLog(@"reload data");
             
         });
         

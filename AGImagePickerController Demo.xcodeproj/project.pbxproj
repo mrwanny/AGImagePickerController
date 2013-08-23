@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D7121F017C7FFE80022BAA4 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D7121EF17C7FFE80022BAA4 /* QuartzCore.framework */; };
+		3D7121F117C800200022BAA4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE1E332C14ED167800F6A6A2 /* CoreGraphics.framework */; };
+		3D7121F317C80D640022BAA4 /* square.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3D7121F217C80D640022BAA4 /* square.jpg */; };
+		3D7121F617C81E460022BAA4 /* ACIPAssetsCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D7121F517C81E460022BAA4 /* ACIPAssetsCollectionViewController.m */; };
 		FE1E332914ED167800F6A6A2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE1E332814ED167800F6A6A2 /* UIKit.framework */; };
 		FE1E332B14ED167800F6A6A2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE1E332A14ED167800F6A6A2 /* Foundation.framework */; };
 		FE1E333314ED167800F6A6A2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FE1E333114ED167800F6A6A2 /* InfoPlist.strings */; };
@@ -33,6 +37,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3D7121EF17C7FFE80022BAA4 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		3D7121F217C80D640022BAA4 /* square.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = square.jpg; sourceTree = "<group>"; };
+		3D7121F417C81E460022BAA4 /* ACIPAssetsCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACIPAssetsCollectionViewController.h; sourceTree = "<group>"; };
+		3D7121F517C81E460022BAA4 /* ACIPAssetsCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACIPAssetsCollectionViewController.m; sourceTree = "<group>"; };
 		FE1E332414ED167800F6A6A2 /* AGImagePickerController Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AGImagePickerController Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE1E332814ED167800F6A6A2 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		FE1E332A14ED167800F6A6A2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -78,6 +86,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D7121F117C800200022BAA4 /* CoreGraphics.framework in Frameworks */,
+				3D7121F017C7FFE80022BAA4 /* QuartzCore.framework in Frameworks */,
 				FEDAA95516C2F3D600234FF0 /* AssetsLibrary.framework in Frameworks */,
 				FE1E332914ED167800F6A6A2 /* UIKit.framework in Frameworks */,
 				FE1E332B14ED167800F6A6A2 /* Foundation.framework in Frameworks */,
@@ -90,6 +100,7 @@
 		FE1E331914ED167800F6A6A2 = {
 			isa = PBXGroup;
 			children = (
+				3D7121F217C80D640022BAA4 /* square.jpg */,
 				FEE0F35C16C509EF001A077B /* AGImagePickerController.podspec */,
 				FEA599C714ED1A8C0057FF9C /* AGImagePickerController */,
 				FE1E332E14ED167800F6A6A2 /* AGImagePickerController Demo */,
@@ -109,6 +120,7 @@
 		FE1E332714ED167800F6A6A2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3D7121EF17C7FFE80022BAA4 /* QuartzCore.framework */,
 				FEA599E114ED30140057FF9C /* AssetsLibrary.framework */,
 				FE1E332814ED167800F6A6A2 /* UIKit.framework */,
 				FE1E332A14ED167800F6A6A2 /* Foundation.framework */,
@@ -167,6 +179,8 @@
 				FE3851AE1504CF7B00A9F7F8 /* AGIPCToolbarItem.m */,
 				FE465F971590B25A00C30A1D /* ALAsset+AGIPC.h */,
 				FE465F981590B25A00C30A1D /* ALAsset+AGIPC.m */,
+				3D7121F417C81E460022BAA4 /* ACIPAssetsCollectionViewController.h */,
+				3D7121F517C81E460022BAA4 /* ACIPAssetsCollectionViewController.m */,
 			);
 			path = AGImagePickerController;
 			sourceTree = "<group>";
@@ -199,6 +213,11 @@
 			attributes = {
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "Artur Grigor";
+				TargetAttributes = {
+					FE1E332314ED167800F6A6A2 = {
+						DevelopmentTeam = 6RSFSCR94T;
+					};
+				};
 			};
 			buildConfigurationList = FE1E331E14ED167800F6A6A2 /* Build configuration list for PBXProject "AGImagePickerController Demo" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -224,6 +243,7 @@
 			files = (
 				FE1E333314ED167800F6A6A2 /* InfoPlist.strings in Resources */,
 				FE1E333F14ED167800F6A6A2 /* AGViewController_iPhone.xib in Resources */,
+				3D7121F317C80D640022BAA4 /* square.jpg in Resources */,
 				FE1E334214ED167800F6A6A2 /* AGViewController_iPad.xib in Resources */,
 				FE3850CB1501B8A10053C9DD /* README.md in Resources */,
 				FEF247F2150DF461008FEFAD /* AGImagePickerController-icon.png in Resources */,
@@ -247,6 +267,7 @@
 				FEA599CC14ED1C500057FF9C /* AGImagePickerController.m in Sources */,
 				FEA599E814ED38EE0057FF9C /* AGIPCAlbumsController.m in Sources */,
 				FECDC90114EDB9C30038006D /* AGIPCGridCell.m in Sources */,
+				3D7121F617C81E460022BAA4 /* ACIPAssetsCollectionViewController.m in Sources */,
 				FECDC90514EDBB690038006D /* AGIPCGridItem.m in Sources */,
 				FE3BAF8814EE80E7001BF3EC /* AGIPCAssetsController.m in Sources */,
 				FE3851AF1504CF7B00A9F7F8 /* AGIPCToolbarItem.m in Sources */,
@@ -346,12 +367,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AGImagePickerController Demo/AGImagePickerController Demo-Prefix.pch";
 				INFOPLIST_FILE = "AGImagePickerController Demo/AGImagePickerController Demo-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				WRAPPER_EXTENSION = app;
 			};
@@ -361,12 +384,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AGImagePickerController Demo/AGImagePickerController Demo-Prefix.pch";
 				INFOPLIST_FILE = "AGImagePickerController Demo/AGImagePickerController Demo-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

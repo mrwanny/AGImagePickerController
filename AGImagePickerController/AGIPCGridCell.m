@@ -35,9 +35,9 @@
     {
         if (_items != items)
         {
-            for (UIView *view in [self subviews]) 
-            {		
-                [view removeFromSuperview];
+            for (AGIPCGridItem *gridItem in self.items)
+            {
+                [gridItem removeFromSuperview];
             }
             
             _items = items;
@@ -75,9 +75,33 @@
 }
 
 #pragma mark - Layout
-
+/*
+- (void)willMoveToSuperview:(UIView *)newSuperview{
+    [super willMoveToSuperview:newSuperview];
+    
+    CGRect frame = self.imagePickerController.itemRect;
+    CGFloat leftMargin = frame.origin.x;
+    
+	for (AGIPCGridItem *gridItem in self.items)
+    {
+		[gridItem setFrame:frame];
+        UITapGestureRecognizer *selectionGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:gridItem action:@selector(tap)];
+        selectionGestureRecognizer.numberOfTapsRequired = 1;
+		[gridItem addGestureRecognizer:selectionGestureRecognizer];
+        
+        gridItem.backgroundColor = [UIColor greenColor];
+		[self.contentView addSubview:gridItem];
+        
+        [gridItem setNeedsDisplay];
+		
+		frame.origin.x = frame.origin.x + frame.size.width + leftMargin;
+    }
+    [self.contentView setNeedsDisplay];
+}
+*/
 - (void)layoutSubviews
 {
+    [super layoutSubviews];
     CGRect frame = self.imagePickerController.itemRect;
     CGFloat leftMargin = frame.origin.x;
     
@@ -88,10 +112,14 @@
         selectionGestureRecognizer.numberOfTapsRequired = 1;
 		[gridItem addGestureRecognizer:selectionGestureRecognizer];
         
-		[self addSubview:gridItem];
+        gridItem.backgroundColor = [UIColor greenColor];
+        
+		[self.contentView addSubview:gridItem];
 		
+        [gridItem setNeedsDisplay];
 		frame.origin.x = frame.origin.x + frame.size.width + leftMargin;
+        
 	}
-}
 
+}
 @end
