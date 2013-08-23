@@ -107,25 +107,10 @@
 {    
     // Show saved photos on top
     ipc.shouldShowSavedPhotosOnTop = NO;
-    ipc.shouldChangeStatusBarStyle = YES;
+    ipc.shouldChangeStatusBarStyle = NO;
     ipc.selection = self.selectedPhotos;
-//    ipc.maximumNumberOfPhotosToBeSelected = 1;
-    
-    // Custom toolbar items
-    AGIPCToolbarItem *selectAll = [[AGIPCToolbarItem alloc] initWithBarButtonItem:[[UIBarButtonItem alloc] initWithTitle:@"+ Select All" style:UIBarButtonItemStyleBordered target:nil action:nil] andSelectionBlock:^BOOL(NSUInteger index, ALAsset *asset) {
-        return YES;
-    }];
-    AGIPCToolbarItem *flexible = [[AGIPCToolbarItem alloc] initWithBarButtonItem:[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil] andSelectionBlock:nil]; 
-    AGIPCToolbarItem *selectOdd = [[AGIPCToolbarItem alloc] initWithBarButtonItem:[[UIBarButtonItem alloc] initWithTitle:@"+ Select Odd" style:UIBarButtonItemStyleBordered target:nil action:nil] andSelectionBlock:^BOOL(NSUInteger index, ALAsset *asset) {
-        return !(index % 2);
-    }];
-    AGIPCToolbarItem *deselectAll = [[AGIPCToolbarItem alloc] initWithBarButtonItem:[[UIBarButtonItem alloc] initWithTitle:@"- Deselect All" style:UIBarButtonItemStyleBordered target:nil action:nil] andSelectionBlock:^BOOL(NSUInteger index, ALAsset *asset) {
-        return NO;
-    }];  
-    ipc.toolbarItemsForManagingTheSelection = @[selectAll, flexible, selectOdd, flexible, deselectAll];
-//    imagePickerController.toolbarItemsForManagingTheSelection = [NSArray array];
-    
-//    imagePickerController.maximumNumberOfPhotos = 3;
+    ipc.maximumNumberOfPhotosToBeSelected = 1;
+
     [self presentModalViewController:ipc animated:YES];
 }
 

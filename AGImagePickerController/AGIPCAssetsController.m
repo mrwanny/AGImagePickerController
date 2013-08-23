@@ -229,10 +229,15 @@
     // Setup Notifications
     [self registerForNotifications];
     
-    // Navigation Bar Items
-    UIBarButtonItem *doneButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneAction:)];
-    doneButtonItem.enabled = NO;
-	self.navigationItem.rightBarButtonItem = doneButtonItem;
+    if (self.imagePickerController.maximumNumberOfPhotosToBeSelected == 1) {
+        // we do not need to show the done button
+    } else {
+        // Navigation Bar Items
+        UIBarButtonItem *doneButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneAction:)];
+        doneButtonItem.enabled = NO;
+        self.navigationItem.rightBarButtonItem = doneButtonItem;
+    }
+
 }
 
 - (void)viewDidUnload
@@ -291,12 +296,6 @@
                 if (result == nil) 
                 {
                     return;
-                }
-                if (strongSelf.imagePickerController.shouldShowPhotosWithLocationOnly) {
-                    CLLocation *assetLocation = [result valueForProperty:ALAssetPropertyLocation];
-                    if (!assetLocation || !CLLocationCoordinate2DIsValid([assetLocation coordinate])) {
-                        return;
-                    }
                 }
                 AGIPCGridItem *gridItem = [[AGIPCGridItem alloc] initWithImagePickerController:strongSelf.imagePickerController asset:result andDelegate:strongSelf];
                 if ( strongSelf.imagePickerController.selection != nil && 
@@ -386,6 +385,10 @@
 
 - (void)agGridItem:(AGIPCGridItem *)gridItem didChangeNumberOfSelections:(NSNumber *)numberOfSelections
 {
+    if (self.imagePickerController.maximumNumberOfPhotosToBeSelected == 1) {
+        [self.imagePickerController performSelector:@selector(didFinishPickingAssets:) withObject:self.selectedAssets];
+        return;
+    }
     self.navigationItem.rightBarButtonItem.enabled = (numberOfSelections.unsignedIntegerValue > 0);
     [self changeSelectionInformation];
 }
